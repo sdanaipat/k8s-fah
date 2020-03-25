@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    name: folding-at-home-cpu
+  name: folding-at-home-cpu
+spec:
+  progressDeadlineSeconds: 300
+  replicas: 3
+  selector:
+    matchLabels:
+      app: folding-at-home-cpu
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: folding-at-home-cpu
+    spec:
+      containers:
+        - image: sdanaipat/folding-at-home
+          name: folding-at-home-cpu
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 1000m
+              memory: 512Mi
+            limits:
+              cpu: 2000m
+              memory: 1Gi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      nodeSelector:
+        kubernetes.io/hostname: titan
