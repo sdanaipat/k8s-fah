@@ -1,5 +1,7 @@
 # Folding @ Home Docker Image
-webpage: https://foldingathome.org/
+- FAH project webpage: https://foldingathome.org/
+- github: https://github.com/sdanaipat/k8s-fah
+- dockerhub: https://hub.docker.com/repository/docker/sdanaipat/folding-at-home/general
 
 ### Configure
 ```bash
